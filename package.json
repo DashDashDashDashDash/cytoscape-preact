@@ -1,19 +1,19 @@
 {
-  "name": "cytoscape-react",
-  "version": "4.0.0",
-  "description": "Cytoscape react component",
+  "name": "cytoscape-preact",
+  "version": "4.0.3",
+  "description": "Cytoscape preact-compatible component",
   "keywords": [
     "cytoscape",
-    "react"
+    "preact"
   ],
   "author": {
-    "name": "Michael Wright",
-    "email": "mjw@methodanalysis.com"
+    "name": "Dash-",
+    "email": "dash@dashda.sh"
   },
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "url": "https://github.com/mwri/cytoscape-react",
+  "url": "https://github.com/DashDashDashDashDash/cytoscape-react",
   "scripts": {
     "prepublishOnly": "./node_modules/grunt-cli/bin/grunt prepublish",
     "build": "NODE_ENV=production babel src --out-dir dist --copy-files",
@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mwri/cytoscape-react.git"
+    "url": "git+https://github.com/DashDashDashDashDash/cytoscape-react.git"
   },
   "bugs": {
-    "url": "https://github.com/mwri/cytoscape-react/issues"
+    "url": "https://github.com/DashDashDashDashDash/cytoscape-react/issues"
   },
-  "homepage": "https://github.com/mwri/cytoscape-react#readme",
+  "homepage": "https://github.com/DashDashDashDashDash/cytoscape-react#readme",
   "peerDependencies": {
     "cytoscape": "^3.19.0",
     "cytoscape-dom-node": "^1.1.0",
