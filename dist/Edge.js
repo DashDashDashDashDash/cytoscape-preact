@@ -9,7 +9,7 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _propTypes = require("prop-types");
 
-var _react = _interopRequireWildcard(require("react"));
+var _compat = _interopRequireWildcard(require("preact/compat"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -30,8 +30,8 @@ function Edge(_ref) {
     children,
     layout
   } = _ref;
-  const domRef = (0, _react.useRef)();
-  const [missing, setMissing] = (0, _react.useState)(2);
+  const domRef = (0, _compat.useRef)();
+  const [missing, setMissing] = (0, _compat.useState)(2);
 
   function addEdge(cyEdgeData) {
     cytoInstance.add({
@@ -56,7 +56,7 @@ function Edge(_ref) {
     return missingCount;
   }
 
-  (0, _react.useEffect)(() => {
+  (0, _compat.useEffect)(() => {
     const nowMissing = missingNodeCount(source, target);
 
     if (nowMissing !== missing) {
@@ -115,7 +115,7 @@ function Edge(_ref) {
       cytoInstance.off('remove', 'node', onRemoveNode);
     };
   }, []);
-  (0, _react.useEffect)(() => {
+  (0, _compat.useEffect)(() => {
     layout();
   }, [id, children]);
 
@@ -124,15 +124,15 @@ function Edge(_ref) {
   }
 
   function newChild(c) {
-    return /*#__PURE__*/_react.default.cloneElement(c, {
+    return _compat.default.cloneElement(c, {
       cytoInstance,
       layout
     });
   }
 
-  const edges = _react.default.Children.map(children, newChild);
+  const edges = _compat.default.Children.map(children, newChild);
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_compat.default.createElement("div", {
     ref: domRef,
     className: "cytoscape-react-edge"
   }, edges);

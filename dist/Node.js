@@ -9,7 +9,7 @@ exports.default = void 0;
 
 var _propTypes = require("prop-types");
 
-var _react = _interopRequireWildcard(require("react"));
+var _compat = _interopRequireWildcard(require("preact/compat"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -29,8 +29,8 @@ function Node(_ref) {
     layout,
     classes
   } = _ref;
-  const domRef = (0, _react.useRef)();
-  (0, _react.useEffect)(() => {
+  const domRef = (0, _compat.useRef)();
+  (0, _compat.useEffect)(() => {
     const data = {
       id,
       dom: domRef.current
@@ -43,20 +43,20 @@ function Node(_ref) {
       cytoInstance.getElementById(id).remove();
     };
   }, []);
-  (0, _react.useEffect)(() => {
+  (0, _compat.useEffect)(() => {
     layout();
   }, [id, children]);
 
   function newChild(c) {
-    return /*#__PURE__*/_react.default.cloneElement(c, {
+    return _compat.default.cloneElement(c, {
       cytoInstance,
       layout
     });
   }
 
-  const nodes = _react.default.Children.map(children, newChild);
+  const nodes = _compat.default.Children.map(children, newChild);
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_compat.default.createElement("div", {
     ref: domRef,
     className: "cytoscape-react-node"
   }, nodes);

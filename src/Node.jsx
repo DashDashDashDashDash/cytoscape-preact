@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'preact/compat';
 
 /**
  * Cytoscape node React component.

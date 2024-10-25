@@ -4,7 +4,7 @@ import lodash from 'lodash';
 import { PropTypes } from 'prop-types';
 import React, {
     useEffect, useRef, useState,
-} from 'react';
+} from 'preact/compat';
 
 Cytoscape.use(CyDomNode);
 

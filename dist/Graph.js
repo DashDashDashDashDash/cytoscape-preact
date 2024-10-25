@@ -19,7 +19,7 @@ var _lodash = _interopRequireDefault(require("lodash"));
 
 var _propTypes = require("prop-types");
 
-var _react = _interopRequireWildcard(require("react"));
+var _compat = _interopRequireWildcard(require("preact/compat"));
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -49,10 +49,10 @@ function Graph(_ref) {
     layoutDebounce,
     children
   } = _ref;
-  const [ready, setReady] = (0, _react.useState)(false);
-  const domRef = (0, _react.useRef)(null);
-  const cytoscapeRef = (0, _react.useRef)(null);
-  const layoutRef = (0, _react.useRef)(null);
+  const [ready, setReady] = (0, _compat.useState)(false);
+  const domRef = (0, _compat.useRef)(null);
+  const cytoscapeRef = (0, _compat.useRef)(null);
+  const layoutRef = (0, _compat.useRef)(null);
 
   function runLayout() {
     if (layoutRef.current !== null) {
@@ -65,7 +65,7 @@ function Graph(_ref) {
 
   const debouncedRunLayout = _lodash.default.debounce(runLayout, layoutDebounce);
 
-  (0, _react.useEffect)(() => {
+  (0, _compat.useEffect)(() => {
     const augmentedCyParams = _objectSpread({
       container: domRef.current,
       style: [{
@@ -93,22 +93,22 @@ function Graph(_ref) {
       resizeObserver.disconnect();
     };
   }, []);
-  (0, _react.useEffect)(() => {
+  (0, _compat.useEffect)(() => {
     debouncedRunLayout();
   }, [ready, layoutParams]);
   let nodesAndEdges = [];
 
   if (cytoscapeRef.current !== null) {
-    nodesAndEdges = _react.default.Children.map(children, c => /*#__PURE__*/_react.default.cloneElement(c, {
+    nodesAndEdges = _compat.default.Children.map(children, c => _compat.default.cloneElement(c, {
       cytoInstance: cytoscapeRef.current,
       layout: debouncedRunLayout
     }));
   }
 
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_compat.default.createElement("div", {
     ref: domRef,
     className: "cytoscape-react-cy-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_compat.default.createElement("div", {
     className: "cytoscape-react-nodes-and-edges"
   }, nodesAndEdges));
 }
